@@ -11,17 +11,47 @@
     var names = ['eric','lisa','tex'];
 	var Hello = React.createClass({
 	   	render: function() {
-			var comments = this.props.nameArray.map(function(obj){
+			var resultNames = this.props.nameArray.map(function(obj){
 				return ([
 					<span> Hello {obj}</span>,
 					<br/>
 				])
 			})
 	       	return (
-				<div> {comments} </div>
+				<div> {resultNames} </div>
 			);
 	   	}
 	});
-	React.render(<Hello nameArray={names} />, document.getElementById('content'));
+	/** likeBtn */
+	var LikeButton = React.createClass({
+		getInitialState: function() {
+    		return {liked: false};
+  		},
+		handleClickLike: function() {
+			this.setState({liked: !this.state.liked});
+		},
+		render: function() {
+	       	return <input type="button" value={this.state.liked ? 'like': 'unlike'} onClick={this.handleClickLike} />;
+	   	}
+	});
+	/** countBtn */
+	var CountButton = React.createClass({
+		getInitialState: function() {
+    		return {count: this.props.count};
+  		},
+		handleClickCount: function() {
+			this.setState({count: this.state.count + 1});
+		},
+		render: function() {
+	       	return <input type="button" value={this.state.count} onClick={this.handleClickCount} />;
+	   	}
+	});
+	/** render */
+	React.render(<div>
+					<Hello nameArray={names} />
+					<CountButton count={7}/>
+					<LikeButton />
+				</div>, 
+				document.getElementById('content'));
 </script>
 </html>
