@@ -1,5 +1,27 @@
 <html>
+<head>
+	<script src="js/react.js"></script>
+	<script src="js/JSXTransformer.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+</head>
 <body>
-	<span>I am the root.</span>
+	<div id="content"></div>
 </body>
+<script type="text/jsx">
+    var names = ['eric','lisa','tex'];
+	var Hello = React.createClass({
+	   	render: function() {
+			var comments = this.props.nameArray.map(function(obj){
+				return ([
+					<span> Hello {obj}</span>,
+					<br/>
+				])
+			})
+	       	return (
+				<div> {comments} </div>
+			);
+	   	}
+	});
+	React.render(<Hello nameArray={names} />, document.getElementById('content'));
+</script>
 </html>
