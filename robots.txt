@@ -1,5 +1,6 @@
-user-agent: *
+User-agent: *
 Disallow:
+Allow: /
 Allow: /eric_profile/
 
 Sitemap: https://force416.github.io/sitemap.xml
