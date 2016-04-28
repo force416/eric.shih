@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://force416.github.io/sitemap.xml
+Sitemap: http://force416.github.io/eric_profile/sitemap.xml
